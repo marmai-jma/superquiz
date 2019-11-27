@@ -8,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   appName = 'SuperQuiz';
 
-  constructor() { }
+// affichage d'un tableau
+  prenoms: string[]= ['Damien' , 'Mohamed' , 'Jean-Marc', 'Johane']
+
+  constructor() {
+
+    setTimeout(()=> this.prenoms.push('Antoine'),2000);
+   }
 
   ngOnInit() {
   }

@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [ AppComponent, NavbarComponent, FooterComponent, HomeComponent ],
+  declarations: [ AppComponent, NavbarComponent, FooterComponent, HomeComponent],
   imports: [ BrowserModule ],
   bootstrap: [AppComponent]
 })
