@@ -6,9 +6,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
-  declarations: [ AppComponent, NavbarComponent, FooterComponent, HomeComponent, QuizListComponent],
+  declarations: [ AppComponent, NavbarComponent, FooterComponent, HomeComponent, QuizListComponent, TodoListComponent],
   imports: [ BrowserModule ],
   bootstrap: [AppComponent]
 })
