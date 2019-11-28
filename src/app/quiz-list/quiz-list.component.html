@@ -1,0 +1,24 @@
+<h1>Liste des quizzes ({{quizList.length}})</h1>
+
+<p>
+    <button class="btn btn-default" (click)=addQuiz()>Ajouter</button>
+    <button class="btn btn-default" (click)=deleteQuiz()>Supprimer</button>
+</p>
+
+<div class="alert alert-info" *ngIf="quizList.length=== 0">
+    <h3>aucun quiz à afficher</h3>
+</div>
+
+<div class="row">
+
+  <!-- Premier quiz -->
+  <div class="col-sm-6" *ngFor="let quiz of quizList">
+    <div class="well">
+      <h2>{{quiz.title}}</h2>
+      <p class="lead">{{quiz.description}}</p>
+      <div class="text-right">
+        <a href="" class="btn btn-info btn-lg">Jouer</a>
+      </div>
+    </div>
+  </div>
+</div>

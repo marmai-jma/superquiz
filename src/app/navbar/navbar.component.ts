@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 
+interface NavItem {
+  text: string;
+  link: string;
+}
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,6 +17,12 @@ export class NavbarComponent implements OnInit {
     name : `Bob l' eponge`,
     email : 'bob@gmail.com',
   });
+  navItems: NavItem[] = [
+    {text: 'Accueil', link: '#'},
+    {text: 'Quizzes', link: '#'},
+    {text: 'Admin', link: '#'},
+    {text: 'Login', link: '#'},
+  ];
 
   constructor() { }
 

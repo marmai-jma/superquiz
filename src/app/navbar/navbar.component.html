@@ -11,10 +11,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">Quizzes</a></li>
-          <li><a href="#">Admin</a></li>
-          <li><a href="#">Login</a></li>
+          <li *ngFor="let item of navItems"><a [href]="item.link">{{item.text}}</a></li>
         </ul>
         <p class="navbar-text navbar-right">Identifié comme <a href="#" class="navbar-link">{{user.name}}</a></p>
       </div><!--/.nav-collapse -->
