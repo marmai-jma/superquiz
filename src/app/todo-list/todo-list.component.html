@@ -9,21 +9,22 @@
             <ul class="list-group">
               <li class="list-group-item"
                     [class.done]="todo.done"
-                    *ngFor = "let todo of todos"
+                    *ngFor = "let todo of todoList"
                     (click)="toggleTodo(todo)">
-                  <img (click)="deleteTodo()" src="/assets/icon-delete.png" class="icon-delete"> {{todo.text}}
+                  <img src="/assets/icon-delete.png" class="icon-delete" (click)="deleteTodo(todo, $event)"> {{todo.text}}
                 </li>
             </ul>
 
+            <!-- Filtres -->
             <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#" data-filter="ALL">Tous</a>
+              <li class="nav-item" [class.active]="currentFilter === filterEnum.ALL" >
+                <a class="nav-link" href="#" (click)="filterTodos(filterEnum.ALL)">Tous</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-filter="DONE">Faits</a>
+              <li class="nav-item" [class.active]="currentFilter === filterEnum.DONE">
+                <a class="nav-link" href="#" (click)="filterTodos(filterEnum.DONE)">Faits</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-filter="NOT_DONE">Pas fait</a>
+              <li class="nav-item" [class.active]="currentFilter === filterEnum.NOT_DONE">
+                <a class="nav-link" href="#" (click)="filterTodos(filterEnum.NOT_DONE)">Pas faits</a>
               </li>
             </ul>
           </form>
