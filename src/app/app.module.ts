@@ -7,9 +7,18 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 
 @NgModule({
-  declarations: [ AppComponent, NavbarComponent, FooterComponent, HomeComponent, QuizListComponent, TodoListComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    HomeComponent,
+    QuizListComponent,
+    TodoListComponent,
+    QuizQuestionComponent
+  ],
   imports: [ BrowserModule ],
   bootstrap: [AppComponent]
 })

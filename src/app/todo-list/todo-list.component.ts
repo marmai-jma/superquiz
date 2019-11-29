@@ -35,7 +35,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  // renvoie ce qu'on affiche
+  // getter renvoie ce qu'on affiche
   get todoList() {
      return this.todos.filter ( (todo) => {
       // renvoie true si on veut garder, false si on veut jeter
