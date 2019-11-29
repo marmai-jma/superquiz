@@ -26,9 +26,6 @@ export class QuizQuestionComponent implements OnInit {
   answer = new Answer({
     questionId: 12,
     multipleChoicesAllowed: false,
-    choices: [
-      { text: '2009', isCorrect: true }
-    ]
   });
   submitLabel: string;
   submitClass: string;
