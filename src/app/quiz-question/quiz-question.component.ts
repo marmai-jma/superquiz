@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Question} from '../models/question';
 import {Answer} from '../models/answer';
+import { Choice } from '../models/choice';
 
 @Component({
   selector: 'app-quiz-question',
@@ -24,12 +25,46 @@ export class QuizQuestionComponent implements OnInit {
   // Réponse en cours (réponse "vierge" pour l'instant)
   answer = new Answer({
     questionId: 12,
-    multipleChoicesAllowed: false
+    multipleChoicesAllowed: false,
+    choices: [
+      { text: '2009', isCorrect: true }
+    ]
   });
+  submitLabel: string;
+  submitClass: string;
+  isSubmitted: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.isSubmitted = this.answer.isAnswered();
+    this.refreshButton();
+
+  }
+
+  clickChoice(choice: Choice) {
+    // si réponse déjà soumise, on ne fait rien
+    if (this.isSubmitted) {
+      return;
+    }
+
+    // si le choix est déjà selectionné, on le retire sinon on l'ajoute
+    if (this.answer.hasChoice(choice) ){
+      this.answer.removeChoice(choice);
+    } else {
+      this.answer.addChoice(choice);
+    }
+  }
+
+  submitAnswer(){
+    this.isSubmitted = true;
+    this.refreshButton();
+  }
+
+  refreshButton() {
+    // met à jour le libellé et la classe  du bouton "soumettre"
+    this.submitLabel = !this.isSubmitted ? 'Soumettre' : this.answer.isCorrect ? 'CORRECT' : 'INCORRECT';
+    this.submitClass = !this.isSubmitted ? 'btn-primary': this.answer.isCorrect ? 'btn-success' : 'btn-danger';
   }
 
   // Charge une nouvelle question et une nouvelle réponse.
@@ -47,5 +82,6 @@ export class QuizQuestionComponent implements OnInit {
       questionId: 35,
       multipleChoicesAllowed: false
     });
+    this.ngOnInit();
   }
 }

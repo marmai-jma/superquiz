@@ -1,3 +1,7 @@
+<button (click) = "gotoNextQuestionTEMP()">
+  QUESTION/REPONNSE SUIVANTE TEMP!!!
+</button>
+
 <div class="row">
 
   <div class="col-md-8">
@@ -7,22 +11,20 @@
         <h3 class="panel-title">Question</h3>
       </div>
       <div class="panel-body">
-        <p style="font-size:1.5em;">QUESTION_TITLE</p>
-        <p>(Plusieurs réponses possibles.)</p>
+        <p style="font-size:1.5em;">{{question.title}}</p>
+        <p hidden>(Plusieurs réponses possibles.)</p>
       </div>
       <div class="list-group">
-        <a class="list-group-item">
-          <h4 class="list-group-item-heading">QUESTION_CHOICE_1</h4>
-        </a>
-        <a class="list-group-item">
-          <h4 class="list-group-item-heading">QUESTION_CHOICE_2</h4>
-        </a>
-        <a class="list-group-item">
-          <h4 class="list-group-item-heading">QUESTION_CHOICE_3</h4>
+        <a class="list-group-item" [class.active]="answer.hasChoice(choice)" *ngFor="let choice of question.choices">
+          <h4 class="list-group-item-heading" (click)="clickChoice(choice)" >{{choice.text}}</h4>
         </a>
         <div class="list-group-item pull-right">
-          <button class="btn btn-lg btn-primary">
-            Soumettre
+          <button
+            class="btn btn-lg"
+            [ngClass]="submitClass"
+            (click)="submitAnswer()"
+            [disabled]="!answer.isAnswered()|| isSubmitted">
+            {{ submitLabel }}
           </button>
         </div>
       </div>
