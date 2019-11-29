@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
+import { QuizItemComponent } from './quiz-item/quiz-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
     HomeComponent,
     QuizListComponent,
     TodoListComponent,
-    QuizQuestionComponent
+    QuizQuestionComponent,
+    QuizItemComponent
   ],
   imports: [ BrowserModule ],
   bootstrap: [AppComponent]

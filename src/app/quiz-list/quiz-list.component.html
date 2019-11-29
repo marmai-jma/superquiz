@@ -12,13 +12,7 @@
 <div class="row">
 
   <!-- Premier quiz -->
-  <div class="col-sm-6" *ngFor="let quiz of quizList">
-    <div class="well">
-      <h2>{{quiz.title}}</h2>
-      <p class="lead">{{quiz.description}}</p>
-      <div class="text-right">
-        <a href="" class="btn btn-info btn-lg">Jouer</a>
-      </div>
-    </div>
+  <div class="col-sm-6" *ngFor="let currentQuiz of quizList">
+      <app-quiz-item [quizItem]="currentQuiz"></app-quiz-item>
   </div>
 </div>
